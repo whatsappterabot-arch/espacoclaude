@@ -31,7 +31,8 @@ Atualizado em 12/10/2026.
 
 ### Técnico
 - [x] (12/10) A ArIA reenviava da memória um link de pagamento antigo, que dava 404 quando o pedido tinha sido apagado. Corrigido: ela não reenvia link antigo e gera um pedido novo, após confirmar o resumo.
-- [ ] Erro de formato intermitente: em 12/10, duas respostas seguidas ao pedido "o link não abre" caíram na mensagem de contingência ("Desculpe, tive um probleminha..."). Na terceira tentativa, a mesma situação funcionou. Investigar a causa e medir a frequência nas execuções do agente.
+- [x] (12/10) Erro de formato intermitente ("Desculpe, tive um probleminha..."). Causa: com a opção "Use Responses API" ligada no nó OpenAI Chat Model1, o GPT-5 às vezes devolvia a resposta embrulhada em blocos ([{"type":"text","text":"..."}]) e o leitor de formato rejeitava como JSON inválido. A resposta em si estava certa. Correção: opção desligada (responsesApiEnabled = false). Depois disso, 3 de 3 repetições do caso que falhava passaram.
+- [ ] Acompanhar o erro de formato por alguns dias. Consulta no banco do n8n (schema awkwardgiantpanda): contar execuções do agente FJPVhGCmCI6km0pi cujo execution_data contém "fit required format".
 - [ ] Pedidos rascunho abandonados se acumulam no painel cada vez que a ArIA gera um link novo. Decidir se apagamos automaticamente os não pagos depois de alguns dias.
 - [ ] Identificador de cliente fixo (id_cliente = 2) nas consultas do agente.
 - [ ] Workflow para as 3 URLs de LGPD da Nuvemshop (apenas receber e registrar).
