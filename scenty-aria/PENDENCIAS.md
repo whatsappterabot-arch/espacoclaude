@@ -1,6 +1,6 @@
 # Scenty Store / ArIA: estado e pendências
 
-Atualizado em 10/10/2026.
+Atualizado em 12/10/2026.
 
 ## O que já funciona
 
@@ -30,6 +30,9 @@ Atualizado em 10/10/2026.
 - [ ] Pagar o plano da loja (aviso "Pague o plano em 1 dia" visto em 09/10).
 
 ### Técnico
+- [x] (12/10) A ArIA reenviava da memória um link de pagamento antigo, que dava 404 quando o pedido tinha sido apagado. Corrigido: ela não reenvia link antigo e gera um pedido novo, após confirmar o resumo.
+- [ ] Erro de formato intermitente: em 12/10, duas respostas seguidas ao pedido "o link não abre" caíram na mensagem de contingência ("Desculpe, tive um probleminha..."). Na terceira tentativa, a mesma situação funcionou. Investigar a causa e medir a frequência nas execuções do agente.
+- [ ] Pedidos rascunho abandonados se acumulam no painel cada vez que a ArIA gera um link novo. Decidir se apagamos automaticamente os não pagos depois de alguns dias.
 - [ ] Identificador de cliente fixo (id_cliente = 2) nas consultas do agente.
 - [ ] Workflow para as 3 URLs de LGPD da Nuvemshop (apenas receber e registrar).
 - [ ] Gerar nova chave secreta (client secret) do app Integra_n8n no portal de parceiros; a atual apareceu num print. Depois, refazer a troca de token.
